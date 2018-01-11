@@ -8,6 +8,31 @@ body {
     justify-content: center;
 }
 
+div .left {
+    position: absolute;
+    left: 0;
+}
+
+div .right {
+    position: absolute;
+    right: 20px;
+}
+
+div .top {
+    position: absolute;
+    top: 0;
+}
+
+div .down {
+    position: absolute;
+    bottom: 0;
+}
+
+div .center {
+    position: absolute;
+    top: 50%;
+}
+
 .question-box {
     display: none;
 }
@@ -25,7 +50,7 @@ body {
     margin-left: 30px;
 }
 
-.submit-checkbox-button {
+.submit-radiogroup-button {
     margin-left: 30px
 }
 
