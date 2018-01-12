@@ -17,7 +17,7 @@ class keypress:
 		self.milliseconds_time = milliseconds_time
 
 	def is_letter(self):
-		return len(self.symbol) <= 1
+		return len(self.symbol) <= 1 and ord('a') <= ord(self.symbol[0]) <= ord('z')
 
 	def letter_number(self):
 		if not self.is_letter:
@@ -27,6 +27,7 @@ class keypress:
 
 def parse_keypress(event_line):
 	parts = event_line.split()
+	# print(event_line)
 	return keypress(parts[1][0], int(parts[2]))
 
 
@@ -54,7 +55,7 @@ def filter_events(all_events):
 
 
 def generate_output_filename(input_file):
-	return str(uuid.uuid4()) + " " + input_file
+	return "handled users/" + str(uuid.uuid4()) + " " + input_file
 
 
 def symbol_from_number(symbol_number):
@@ -97,7 +98,7 @@ def construct_matrix(keypress_events):
 
 	for event in keypress_events:
 		parsed_event = parse_keypress(event)
-		if not parsed_event.is_letter:
+		if not parsed_event.is_letter():
 			continue
 
 		if not previous_defined:
